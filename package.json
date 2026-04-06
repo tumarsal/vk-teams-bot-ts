@@ -1,5 +1,5 @@
 {
-  "name": "@tumarsal/bot-ts",
+  "name": "@tumarsal/vk-teams-bot-ts",
   "version": "1.0.0",
   "description": "TypeScript SDK для VK Teams / ICQ Bot API (порт bot-golang)",
   "type": "module",
