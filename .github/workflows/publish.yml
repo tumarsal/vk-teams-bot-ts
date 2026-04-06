@@ -25,15 +25,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install --no-fund --no-audit
-        working-directory: bot-ts
 
       - name: Build
         run: npm run build
-        working-directory: bot-ts
 
       - name: Publish
         run: npm publish
-        working-directory: bot-ts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
