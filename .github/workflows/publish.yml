@@ -1,0 +1,39 @@
+name: Publish (GitHub Packages)
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: "@tumarsal"
+
+      - name: Install dependencies
+        run: npm install --no-fund --no-audit
+        working-directory: bot-ts
+
+      - name: Build
+        run: npm run build
+        working-directory: bot-ts
+
+      - name: Publish
+        run: npm publish
+        working-directory: bot-ts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

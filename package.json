@@ -1,8 +1,13 @@
 {
-  "name": "bot-ts",
+  "name": "@tumarsal/bot-ts",
   "version": "1.0.0",
   "description": "TypeScript SDK для VK Teams / ICQ Bot API (порт bot-golang)",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tumarsal/vkteams.git",
+    "directory": "bot-ts"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -14,6 +19,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsc"
   },
